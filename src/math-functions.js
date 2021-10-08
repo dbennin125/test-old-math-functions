@@ -75,7 +75,19 @@ to use the + operator for string concatenation.
 */
 
 export function sumArrayWithThreeNumbers(sumArr) {
+//   let total = 0;
+//     for(let number of sumArr) {
+//         const newSum = sum(number, total)[0]
+//         total = newSum;
+//     }
+//   return [total, `${sumArr} was passed in as an array of numbers, and ${total} is their sum.`]
+    
+    const total = sumArr.reduce((acc, current) => {
+        [acc] = sum(current, acc)
+            return acc;
+        },0)
 
+    return [total, `${sumArr} was passed in as an array of numbers, and ${total} is their sum.`]
 }
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
@@ -98,6 +110,12 @@ you may continue to use the + operator for string concatenation.
 */
 
 export function multiplyArrayWithThreeNumbers(multArr) { //eslint-disable-line
+    const total = multArr.reduce((acc, current) => {
+        [acc] = multiply(current, acc)
+        return acc;
+    }, 1)
+
+    return [total, `The numbers ${multArr} have a product of ${total}.`]
 
 }
 
@@ -119,7 +137,12 @@ This function should be dynamic, accepting an array of any length.
 */
 
 export function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+    const total = dynamicArray.reduce((acc, current) => {
+        [acc] = multiply(current, acc)
+        return acc;
+    }, 1)
 
+    return [total, `The numbers ${dynamicArray} have a product of ${total}.`]
 }
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
